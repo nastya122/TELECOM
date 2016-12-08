@@ -102,13 +102,13 @@ public class FileWorker {
         System.out.println("Enter phone number:");
         int phone_number = scan.nextInt();
 
-        System.out.println("Enter travel agency:");
+        System.out.println("Enter subscriber's name:");
         String name = scan.next();
 
-        System.out.println("Enter country:");
+        System.out.println("Enter subscriber's address:");
         String adress = scan.next();
 
-        System.out.println("Enter price:");
+        System.out.println("Enter cost of the phone talking:");
         int cost = scan.nextInt();
 
         Customer customer = new Customer(phone_number, name, adress, cost);
@@ -124,7 +124,7 @@ public class FileWorker {
         System.out.println("Enter phone number:");
         int phone_number = scan.nextInt();
 
-        System.out.println("Enter price:");
+        System.out.println("Enter cost of the phone talking:");
         int cost = scan.nextInt();
 
         Costs cost_ = new Costs(phone_number, cost);
@@ -137,13 +137,13 @@ public class FileWorker {
         System.out.println("Enter phone number:");
         int phone_number = scan.nextInt();
         
-        System.out.println("Enter travel agency:");
+        System.out.println("Enter subscriber's name:");
         String name = scan.nextLine();
 
-        System.out.println("Enter adress:");
+        System.out.println("Enter subscriber's adress:");
         String adress = scan.nextLine();
 
-        System.out.println("Enter price:");
+        System.out.println("Enter cost of the phone talking:");
         int cost = scan.nextInt();
 
         Customer customer = new Customer(phone_number, name, adress, cost);
