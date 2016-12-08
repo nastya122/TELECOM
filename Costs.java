@@ -25,6 +25,6 @@ public class Costs {
     
     public void print() {
         System.out.println(" Quantity: " + phone_number_);
-        System.out.println(" Cost of the tour: " + cost_);
+        System.out.println(" Cost of the phone talking: " + cost_);
     }
 }
