@@ -151,4 +151,11 @@ public class FileWorker {
         
         writeCustomers();
     }
+    public void searchNumber() throws ParseException, IOException {
+        System.out.println("Enter phone number:");
+        int phone_number = scan.nextInt();
+        if customers.get(i).getNumber()== phone_number{ 
+        System.out.println(customers.get(i).getNumber() + " " + customers.get(i).getName() + " " + customers.get(i).getAdress() + " " + customers.get(i).getCost() + " ");
+        }
+    }
 }
