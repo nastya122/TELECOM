@@ -41,8 +41,8 @@ public class Customer {
     
     public void print() {
         System.out.println(" Quantity: " + phone_number_);
-        System.out.println(" Name of the subscriber: " + name_);
-        System.out.println(" Subscriber's address: " + adress_);
+        System.out.println(" Name of the customer: " + name_);
+        System.out.println(" Customer's address: " + adress_);
         System.out.println(" Cost of the phone talking: " + cost_);
     }
 }

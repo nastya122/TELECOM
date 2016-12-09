@@ -1,44 +1,40 @@
 package java_project;
-import java.util.ArrayList;
+
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.text.ParseException;
+import java.util.*;
+
 public class CustomerBase{
-    private int phone_number_;
-    private String name_;
-    private String adress_;
+    public volatile ArrayList<Customer> customers = new ArrayList<Customer>();
+    Scanner scan = new Scanner(System.in);
+    FileWorker basecustom = new FileWorker();
     
-    public CustomerBase(ArrayList<Customer> customers_) {
-       customers = customers_;
+    public void readbase() throws FileNotFoundException, ParseException {
+        basecustom.readCustomers(customers);
     }
-   public CustomerBase(int phone_number, String name, String adress, int cost) {
-        phone_number_ = phone_number;
-        name_ = name;
-        adress_ = adress;
-        cost_ = cost;
+
+    public void writebase() throws IOException {
+        basecustom.writeCustomers(customers);
     }
-   private ArrayList<CustomerBase> customers = new ArrayList<CustomerBase>();
-   
-   FileWorker basecustom = new FileWorker();
-   
-   public void writebase{
-     basecustom.writeCustomers(); 
-   }
-   
-   public void addbase{
-   basecustom.addNumber();}
-   
-   public void readbase{
-    basecustom.readCustomers();
-    customers.add(basecustom);
-   }
-   public void viewbase{
-   basecustom.viewCustomers();}
-   
-   public void editbase{
-   basecustom.editNumber();}
-   
-   public void deletebase(){
-   basecustom.deleteCustomer();}
-   
-   public void searchbase(){
-   basecustom.searchNumber();  
-   }
+    
+    public void viewbase() {
+        basecustom.viewCustomers(customers);
+    }
+
+    public void addbase() throws ParseException, IOException {
+        basecustom.addNumber(customers);
+    }
+
+    public void editbase() throws ParseException, IOException {
+        basecustom.editNumber(customers);
+    }
+
+    public void deletebase() throws IOException {
+        basecustom.deleteCustomer(customers);
+    }
+
+    public void searchbase() throws ParseException, IOException {
+        basecustom.searchNumber(customers);
+    }
 }
