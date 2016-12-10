@@ -1,19 +1,19 @@
 package java_project;
 
 public class Customer {
-    private int phone_number_;
+    private String phone_number_;
     private String name_;
     private String adress_;
     private int cost_;
     
-    public Customer(int phone_number, String name, String adress, int cost) {
+    public Customer(String phone_number, String name, String adress, int cost) {
         phone_number_ = phone_number;
         name_ = name;
         adress_ = adress;
         cost_ = cost;
     }
     
-    public int getNumber() {
+    public String getNumber() {
         return phone_number_;
     }
     public String getName() {
@@ -26,7 +26,7 @@ public class Customer {
         return cost_;
     }
     
-    public void setNumber(int phone_number) {
+    public void setNumber(String phone_number) {
        phone_number_ = phone_number; 
     }
     public void setName(String name) {

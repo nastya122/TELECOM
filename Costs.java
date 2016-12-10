@@ -1,22 +1,22 @@
 package java_project;
 
 public class Costs {
-    private int phone_number_;
+    private String phone_number_;
     private int cost_;
     
-    public Costs(int phone_number, int cost) {
+    public Costs(String phone_number, int cost) {
         phone_number_ = phone_number;
         cost_ = cost;
     }
     
-    public int getNumber() {
+    public String getNumber() {
         return phone_number_;
     }
     public double getCost() {
         return cost_;
     }
     
-    public void setNumber(int phone_number) {
+    public void setNumber(String phone_number) {
        phone_number_ = phone_number;
     }
     public void setCost(int cost) {
