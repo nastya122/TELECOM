@@ -32,7 +32,7 @@ public class FileWorker {
     }
     
     public void readCosts(ArrayList<Costs> costs) throws FileNotFoundException, ParseException {
-        File f = new File("res//Costs.txt");
+        File f = new File("Costs.txt");
         Scanner cost_scan = new Scanner(new FileReader(f));
         
         if (f.length()!=0) {
@@ -60,19 +60,13 @@ public class FileWorker {
     }
     
     public void writeCosts(ArrayList<Costs> costs) throws IOException {
-            FileWriter fileWriter = new FileWriter("res//Costs.txt");
+            FileWriter fileWriter = new FileWriter("Costs.txt");
             Integer size = costs.size();
             fileWriter.write(size.toString() + " ");
             for (int i=0; i<costs.size(); i++) {
                 fileWriter.write(costs.get(i).getNumber() + " " + costs.get(i).getCost() + " ");
             }
             fileWriter.close();
-    }
-
-    public void viewCustomers(ArrayList<Customer> customers){
-        for (int i = 0; i< customers.size(); i++){
-            customers.get(i).print();
-        }
     }
     
     public void viewCosts(ArrayList<Costs> costs){
@@ -89,7 +83,7 @@ public class FileWorker {
         writeCustomers(customers);
     }
     
-    public void deleteContacts(ArrayList<Customer> customers, Customer C) throws ParseException {
+   /* public void deleteContacts(ArrayList<Customer> customers, Customer C) throws ParseException {
         BufferedReader br = null;
         String ReWrite = "";
         try {
@@ -125,29 +119,9 @@ public class FileWorker {
         } catch (IOException ex) {
             JOptionPane.showMessageDialog(null, ex.getMessage());
         }
-    }
+    }*/
 
-    public void editNumber(ArrayList<Customer> customers) throws ParseException, IOException {
-        System.out.println("Enter index:");
-        int ind = scan.nextInt();
-        
-        System.out.println("Enter phone number:");
-        String phone_number = scan.next();
-
-        System.out.println("Enter customer's name:");
-        String name = scan.next();
-
-        System.out.println("Enter customer's address:");
-        String adress = scan.next();
-
-        System.out.println("Enter cost of the phone talking:");
-        int cost = scan.nextInt();
-
-        Customer customer = new Customer(phone_number, name, adress, cost);
-        customers.set(ind-1, customer);
-        
-        writeCustomers(customers);
-    }
+    
     
     public void editCost(ArrayList<Costs> costs) throws ParseException, IOException {
         System.out.println("Enter index:");
@@ -165,24 +139,7 @@ public class FileWorker {
         writeCosts(costs);
     }
     
-    public void addNumber(ArrayList<Customer> customers) throws ParseException, IOException {
-        System.out.println("Enter phone number:");
-        String phone_number = scan.next();
-        
-        System.out.println("Enter customer's name:");
-        String name = scan.nextLine();
-
-        System.out.println("Enter customer's adress:");
-        String adress = scan.nextLine();
-
-        System.out.println("Enter cost of the phone talking:");
-        int cost = scan.nextInt();
-
-        Customer customer = new Customer(phone_number, name, adress, cost);
-        customers.add(customer);
-        
-        writeCustomers(customers);
-    } 
+    
     
     public void searchNumber(ArrayList<Customer> customers) throws ParseException, IOException {
         System.out.println("Enter phone number:");
