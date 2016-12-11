@@ -35,13 +35,13 @@ public class Customer {
     public void setAdress(String adress) {
        adress_ = adress; 
     }
-    public void setCost(int cost) {
+    public void setCost(String cost) {
        cost_ = cost; 
     }
     
     public void print() {
-        System.out.println(" Quantity: " + phone_number_);
         System.out.println(" Name of the customer: " + name_);
+        System.out.println(" Phone number: " + phone_number_);       
         System.out.println(" Customer's address: " + adress_);
         System.out.println(" Cost of the phone talking: " + cost_);
     }
