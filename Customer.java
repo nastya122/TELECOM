@@ -4,7 +4,15 @@ public class Customer {
     private String phone_number_;
     private String name_;
     private String adress_;
-    private int cost_;
+    private String cost_;
+    
+    public Customer()
+    {
+        phone_number_ = "";
+        name_ = "";
+        adress_ = "";
+        cost_ = "";
+    }
     
     public Customer(String phone_number, String name, String adress, int cost) {
         phone_number_ = phone_number;
