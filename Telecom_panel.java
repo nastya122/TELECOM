@@ -56,6 +56,7 @@ public class Telecom_panel extends javax.swing.JFrame {
                 jTable1.getColumn("Name").setMaxWidth(130);
                 jTable1.getColumn("Contacts No").setMaxWidth(110);
                 jTable1.getColumn("Email Address").setMaxWidth(110);
+                jTable1.getColumn("Cost").setMaxWidth(50);
                 jTextStatus.setText("Finish Load Contact," + Integer.toString(AllContacts.size())
                         + " records found");
             } else {
@@ -257,7 +258,7 @@ public class Telecom_panel extends javax.swing.JFrame {
             String phone = (String)jTable1.getValueAt(row,1);
             String name = (String)jTable1.getValueAt(row,2);
             String adress = (String)jTable1.getValueAt(row,3);
-            int cost = (int)jTable1.getValueAt(row,4);
+            int cost = (String)jTable1.getValueAt(row,4);
             
             Customer C = new Customer(phone, name, adress, cost);
          
@@ -278,7 +279,7 @@ public class Telecom_panel extends javax.swing.JFrame {
             String phone = (String)jTable1.getValueAt(row,1);
             String name = (String)jTable1.getValueAt(row,2);
             String email = (String)jTable1.getValueAt(row,3);
-            int cost = (int)jTable1.getValueAt(row,4);
+            int cost = (String)jTable1.getValueAt(row,4);
             
             Customer C = new Customer(phone, name, email, cost);
             
@@ -289,39 +290,22 @@ public class Telecom_panel extends javax.swing.JFrame {
         }
     }                                       
  
-    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {                                        
-        //reload Contacts       
-        CustomerBase.readCustomer();       
-        BindIntoJTable();
-    }                                       
+                                          
  
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {                                        
         String searchValue = jTextSearch.getText();
         ArrayList<Customer> contacts = CustomerBase.searchCustomer(searchValue);
-        CustomerBase.setAllContacts(contacts);
+        CustomerBase.setAllCustomers(contacts);
         BindIntoJTable();
-    }                                       
+    } 
+    
+    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {                                        
+        //reload Contacts       
+        CustomerBase.readCustomers();       
+        BindIntoJTable();
+    } 
  
     private void jMenu1MenuSelected(javax.swing.event.MenuEvent evt) {                                   
         // do nothing    
     }                                  
- 
-    
-    public static void main(String args[]) {
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Windows".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException | InstantiationException | IllegalAccessException | javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(MainUserInterface.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new Telecom_panel().setVisible(true);
-            }
-        });
-    }
 }
