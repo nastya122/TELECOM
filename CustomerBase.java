@@ -4,14 +4,13 @@ import java.io.*;
 import java.text.ParseException;
 import java.util.*;
 import java.util.logging.*;
-import java.text.ParseException;
 import javax.swing.JOptionPane;
 
 public class CustomerBase{
     public static ArrayList<Customer> customers = new ArrayList<Customer>();
     Scanner scan = new Scanner(System.in);
     static FileWorker basecustom = new FileWorker();
-    public static final String FileName = "Contacts.txt";
+    public static final String FileName = "Customers.txt";
     
     public CustomerBase() {
         customers = new ArrayList<Customer>();
@@ -105,10 +104,7 @@ public class CustomerBase{
             }
         }
     }
-/////////////////////////////////////////////////////////////////////////////////--запись данных в файл  так и осталась
-    public void writeCustomer() throws IOException {
-        basecustom.writeCustomers(customers);
-    }
+
     /////////////////////////////////////////////////////////////////////////////////////-редактирование данных
     public static boolean editCustomer(String name, String number, String adress, String cost, String NewStringLine) {
         BufferedReader br = null;
