@@ -1,1 +1,7 @@
+nastya,0987610920,anastasia@mail.ru
 
+diana,0633924798,diana@mail.ru
+
+barbara,0677113147,efgh@mail.ru
+
+sasha,0673453698,sasha@mail.ru
