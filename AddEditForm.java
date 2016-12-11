@@ -5,11 +5,10 @@ import javax.swing.JOptionPane;
 public class AddEditForm extends javax.swing.JFrame {
     private javax.swing.JTextField JTextName, JTextPhone, JTextEmail, JTextStatus;
     private javax.swing.JButton jButton1, jButton2;
-    private javax.swing.JLabel jLabel1, jLabel2, jLabel3, jLabel4;
+    private javax.swing.JLabel jLabel1, jLabel2, jLabel3, jLabel4,jLabel5;
  
     private boolean formMode; // true for add, false for edit
-    private Customer editContactDetails;
-    
+    private Customer editContactDetails;  
     //Creates new form AddEditForm
     public AddEditForm() {
         initComponents();
@@ -54,6 +53,8 @@ public class AddEditForm extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         JTextEmail = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
+        JTextCost = new javax.swing.JTextField();
+        jLabel5 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         JTextStatus = new javax.swing.JTextField();
@@ -85,7 +86,12 @@ public class AddEditForm extends javax.swing.JFrame {
         jLabel4.setFont(new java.awt.Font("Verdana", 0, 11)); // NOI18N
         jLabel4.setText("Email Address");
  
-        jButton1.setFont(new java.awt.Font("Verdana", 0, 11)); // NOI18N
+        JTextCost.setFont(new java.awt.Font("Verdana", 0, 11));
+     
+        jLabel5.setFont(new java.awt.Font("Verdana", 0, 11));
+        jLabel5.setText("Cost");
+     
+        jButton1.setFont(new java.awt.Font("Verdana", 0, 11));
         jButton1.setText("Save");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -123,6 +129,8 @@ public class AddEditForm extends javax.swing.JFrame {
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                         .addGap(20, 20, 20)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel5)
+                            .addComponent(JTextCost, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel4)
                             .addComponent(JTextEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel3)
@@ -150,6 +158,9 @@ public class AddEditForm extends javax.swing.JFrame {
                 .addComponent(jLabel4)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(JTextEmail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jLabel5)    
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(JTextCost, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton1)
@@ -170,6 +181,7 @@ public class AddEditForm extends javax.swing.JFrame {
         String Name = JTextName.getText();
         String Phone = JTextPhone.getText();
         String Email = JTextEmail.getText();
+        String Cost = JTextEmail.getText();
         String buildContact = "";
         
         if(!Name.isEmpty()){
@@ -189,6 +201,12 @@ public class AddEditForm extends javax.swing.JFrame {
         }else {
             buildContact += "NULL" + ",";
         }
+     
+        if(!Cost.isEmpty()){
+            buildContact += Cost + ",";
+        }else {
+            buildContact += "NULL" + ",";
+        }
         
         buildContact = buildContact.substring(0,buildContact.length() -1);
         
@@ -202,7 +220,7 @@ public class AddEditForm extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(null, "Failed to add contact : " + Name);
             } 
         } else {
-            if(CustomerBase.editbase(editContactDetails.getName(),
+            if(CustomerBase.editCustomer(editContactDetails.getName(),
                     editContactDetails.getNumber(),
                     editContactDetails.getAdress(),
                     editContactDetails.getCost(),buildContact)){
@@ -232,10 +250,6 @@ public class AddEditForm extends javax.swing.JFrame {
         });
     }
 
-    // @return the formMode
-    public boolean isFormMode() {
-        return formMode;
-    }
     
     // @param formMode the formMode to set
     public void setFormMode(boolean formMode) {
