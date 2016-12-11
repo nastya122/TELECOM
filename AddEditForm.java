@@ -195,7 +195,7 @@ public class AddEditForm extends javax.swing.JFrame {
         if(formMode) {
             if(CustomerBase.appendTextContact(buildContact + "\r\n")){
                 JOptionPane.showMessageDialog(null, "Successfully add contact : " + Name);               
-                CustomerBase.readbase(); // reread contact file to reload arrayList
+                CustomerBase.readCustomers(); // reread contact file to reload arrayList
                 Telecom_panel.BindIntoJTable();
                 CloseDialog();
             } else {
@@ -204,9 +204,10 @@ public class AddEditForm extends javax.swing.JFrame {
         } else {
             if(CustomerBase.editbase(editContactDetails.getName(),
                     editContactDetails.getNumber(),
-                    editContactDetails.getAdress(), buildContact)){
+                    editContactDetails.getAdress(),
+                    editContactDetails.getCost(),buildContact)){
                 JOptionPane.showMessageDialog(null, "Successfully update contact : " + Name);
-                CustomerBase.readbase(); // reread contact file to reload arrayList
+                CustomerBase.readCustomers(); // reread contact file to reload arrayList
                 Telecom_panel.BindIntoJTable();
                 CloseDialog();
             } else {
